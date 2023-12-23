@@ -1,4 +1,4 @@
-- name: catalogue server
+- name: catalogue server creation
   hosts: catalogue
   become: yes
   tasks: 
@@ -6,3 +6,4 @@
     ansible.builtin.shell: dnf module disable nodejs -y ; dnf module enable nodejs:18 -y
       name: nodejs
       state: present
+
