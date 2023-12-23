@@ -19,3 +19,13 @@
       path: /app
       state: directory
 
+  - name: Download catalogue application
+    ansible.builtin.get_url:
+      url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+      dest: /tmp/catalogue.zip
+
+  - name: Extracting catalogue file
+    ansible.builtin.unarchive:
+      src: /tmp/catalogue.zip
+      dest: /app  
+
