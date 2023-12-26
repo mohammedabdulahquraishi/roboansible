@@ -30,8 +30,8 @@
       state: directory
 
   - name: Copy file with owner and permissions
-    ansible.builtin.copy:
-      src: /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip
+    ansible.builtin.get_url:
+      url: /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip
       dest: /app
 
   - name: unzip
