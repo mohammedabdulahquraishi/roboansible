@@ -3,7 +3,7 @@
   become: yes
   tasks: 
   - name: install redis repo
-    ansible.builtin.dnf: 
+    ansible.builtin.package: 
     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
     state: present
 
