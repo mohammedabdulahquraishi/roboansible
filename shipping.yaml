@@ -43,7 +43,7 @@
       chdir: /app
 
   - name: copy shipping service
-    ansible.shipping.copy:
+    ansible.builtin.copy:
       src: shipping.service
       dest: /etc/systemd/system/shipping.service
 
