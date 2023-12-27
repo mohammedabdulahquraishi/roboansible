@@ -31,9 +31,8 @@
 
   - name: Copy file with owner and permissions
     ansible.builtin.get_url:
-      url: /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip
-      dest: /app
-
+      url: https://roboshop-builds.s3.amazonaws.com/user.zip
+      dest: /tmp/user.zip 
   - name: unzip
     ansible.builtin.unarchive:
       src: /tmp/user.zip
