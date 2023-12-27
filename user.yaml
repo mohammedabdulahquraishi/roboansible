@@ -12,12 +12,7 @@
 
   - name: add user
     ansible.builtin.user:
-      name: roboshop
-
-  - name: install nodejs
-    ansible.builtin.package:
-      name: nodejs
-      state: present  
+      name: roboshop  
 
   - name: Recursively remove directory
     ansible.builtin.file:
@@ -33,6 +28,7 @@
     ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/user.zip
       dest: /tmp/user.zip 
+
   - name: unzip
     ansible.builtin.unarchive:
       src: /tmp/user.zip
@@ -44,15 +40,14 @@
     args:
       chdir: /app
 
+  - name: Copy user service
+    ansible.builtin.copy:
+      src: user.service
+      dest: /etc/systemd/system/user.service
+
   - name: Daemon Reload and start
     ansible.builtin.systemd_service:
       daemon_reload: true
-
-  - name: start and enable user
-    ansible.builtin.package:
-      name: user
-      state: restarted
-      enabled: yes
 
   - name: copying mongodb repo
     ansible.builtin.copy:
@@ -79,7 +74,7 @@
   - name: start and enable user
     ansible.builtin.service:
       name: user
-      state: restarted
+      state: restarted 
       enabled: yes
   
 
