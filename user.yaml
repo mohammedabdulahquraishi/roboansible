@@ -51,7 +51,7 @@
   - name: start and enable user
     ansible.builtin.package:
       name: user
-      state: started
+      state: restarted
       enabled: yes
 
   - name: copying mongodb repo
