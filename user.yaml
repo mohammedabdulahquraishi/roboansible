@@ -76,7 +76,7 @@
     ansible.builtin.command: mongo --host mongodb.littlesimba.online < /app/schema/user.js
     when: user_count.stdout == "0"
 
-  - name: restart and enable user
+  - name: start and enable user
     ansible.builtin.service:
       name: user
       state: restarted
