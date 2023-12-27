@@ -7,7 +7,7 @@
       name: "{{item}}"
       state: present
     loop:
-    - "python 36"
+    - python36
     - gcc
     - python3-devel
       
