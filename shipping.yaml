@@ -1,4 +1,4 @@
-- name: shipping
+- name: shipping server
   hosts: shipping
   become: yes
   tasks:
